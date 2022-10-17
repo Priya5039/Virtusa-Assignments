@@ -127,12 +127,16 @@ class Calculator {
   
   document.addEventListener('keydown', function (event) {
     let patternForNumbers = /[0-9]/g;
-    let patternForOperators = /[+\-*\/]/g
+    let patternForOperators = /[+\-*\/]/g;
+    let patternforalpha = /[a-z]/g;
     if (event.key.match(patternForNumbers)) {
       event.preventDefault();
       calculator.appendNumber(event.key)
       calculator.updateDisplay()
     }
+    if (event.key.match(patternforalpha)) {
+        alert("Only numbers are allowed");
+      }
     if (event.key === '.') {
       event.preventDefault();
       calculator.appendNumber(event.key)
@@ -157,9 +161,6 @@ class Calculator {
       event.preventDefault();
       calculator.clear()
       calculator.updateDisplay()
-    }
-    else{
-        alert("Only numbers are allowed");
     }
   
   });
